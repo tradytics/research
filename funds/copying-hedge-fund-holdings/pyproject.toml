@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tradytics-13f-portfolio"
+version = "0.1.0"
+description = "Calculate the holdings and target weights of the Tradytics 13F portfolio."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "tradytics>=0.6.1,<1",
+    "tzdata; sys_platform == 'win32'",
+]
+
+[project.scripts]
+tradytics-13f = "tradytics_13f_portfolio.cli:main"
+
+[tool.setuptools.package-data]
+tradytics_13f_portfolio = ["funds.json"]
